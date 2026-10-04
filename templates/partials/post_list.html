@@ -1,0 +1,10 @@
+<ul class="blog">
+  {% for page in posts %}
+  <li>
+    {% if page.date %}
+    <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%Y-%m-%d") }}</time>
+    {% endif %}
+    <a href="{{ page.permalink }}">{{ page.title }}</a>
+  </li>
+  {% endfor %}
+</ul>

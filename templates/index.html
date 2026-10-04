@@ -13,25 +13,13 @@
 </section>
 
 {% if config.extra.zolagray.home_list_latest_blog_posts | default(value=true) %}
-<h2>Latest Posts</h2>
-{% set blog_posts = [] %}
+{% set posts = [] %}
 {% if "blog/_index.md" in section.subsections %}
 {% set blog_section = get_section(path="blog/_index.md") %}
-{% set blog_posts = blog_section.pages %}
+{% set posts = blog_section.pages %}
 {% endif %}
-{% if blog_posts %}
-<ul>
-  {% for page in blog_posts[:5] %}
-  <li>
-    <article>
-      {% if page.date %}
-      <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%Y-%m-%d") }}</time>
-      {% endif %}
-      <a href="{{ page.permalink }}">{{ page.title }}</a>
-    </article>
-  </li>
-  {% endfor %}
-</ul>
+{% if posts %}
+{% include "partials/post_list.html" %}
 {% else %}
 <p>No blog posts found.</p>
 {% endif %}

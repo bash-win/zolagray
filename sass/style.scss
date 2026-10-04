@@ -108,22 +108,31 @@ h6 {
 
 header {
   display: flex;
-  justify-content: flex-end; /* Align items to the right */
-  align-items: center; /* Vertically align items */
+  justify-content: space-between;
+  align-items: center;
+}
+
+header a {
+  text-decoration: none;
+}
+
+header a:hover {
+  text-decoration: underline;
+}
+
+.site-title {
+  color: var(--fg-color);
+  font-weight: bold;
 }
 
 nav {
   display: flex;
   align-items: center;
+  gap: 1em;
 }
 
 nav a {
   color: var(--orange-color);
-}
-
-nav a,
-nav span {
-  margin: 0 0.5em; /* Add some spacing between nav links */
 }
 
 code {
@@ -179,5 +188,12 @@ ul.blog {
 }
 
 ul.blog li {
-  position: relative;
+  display: flex;
+  gap: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+ul.blog time {
+  color: var(--comment-color);
+  flex-shrink: 0;
 }

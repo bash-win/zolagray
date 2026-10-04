@@ -48,18 +48,17 @@
   <body class="theme-{{ config.extra.zolagray.theme | default(value="iron") }}">
     {% set root_section = get_section(path="_index.md") %}
     <header>
+      <a class="site-title" href="{{ config.base_url }}">{{ config.title }}</a>
       <nav>
-        <a href="{{ config.base_url }}">/home/</a>
-
         {# Render subsections #}
         {% for subsection_path in root_section.subsections %}
         {% set subsection = get_section(path=subsection_path) %}
-        <a href="{{ subsection.permalink }}">{{ subsection.permalink | replace(from=config.base_url, to="") }}</a>
+        <a href="{{ subsection.permalink }}">{{ subsection.title | lower }}</a>
         {% endfor %}
 
         {# Render pages at the root #}
         {% for page in root_section.pages %}
-        <a href="{{ page.permalink }}">{{ page.permalink | replace(from=config.base_url, to="") }}</a>
+        <a href="{{ page.permalink }}">{{ page.title | lower }}</a>
         {% endfor %}
       </nav>
     </header>
