@@ -27,7 +27,7 @@ fi
 echo -e "${GREEN}🏗️${RESET} Building Zola site..."
 # Redirect stdout to /dev/null to suppress Zola's regular build output,
 # but allow stderr (errors) to pass through.
-zola build &>/dev/null
+zola build >/dev/null
 
 REQUIRED_ORIGIN=$(git remote get-url origin)
 pushd public &>/dev/null

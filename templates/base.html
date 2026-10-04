@@ -21,17 +21,19 @@
     {% else %}<link rel="canonical" href="{{ config.base_url }}" />
     {% endif %}
     <link rel="stylesheet" href="{{ get_url(path="style.css") }}">
-    {% if config.extra.zolanight.google_analytics_id %}
+    <link rel="icon" type="image/svg+xml" href="{{ get_url(path="favicon.svg") }}">
+    <link rel="icon" sizes="any" href="{{ get_url(path="favicon.ico") }}">
+    {% if config.extra.zolagray.google_analytics_id %}
     <!-- Delayed Google Analytics loading -->
     <script>
       const loadGtag = () => {
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', '{{ config.extra.zolanight.google_analytics_id }}');
+        gtag('config', '{{ config.extra.zolagray.google_analytics_id }}');
 
         const script = document.createElement('script');
-        script.src = "https://www.googletagmanager.com/gtag/js?id={{ config.extra.zolanight.google_analytics_id }}";
+        script.src = "https://www.googletagmanager.com/gtag/js?id={{ config.extra.zolagray.google_analytics_id }}";
         script.defer = true;
         document.head.appendChild(script);
       };
@@ -43,7 +45,7 @@
     {% endif %}
     {% block extra_head %}{% endblock extra_head %}
   </head>
-  <body class="theme-{{ config.extra.zolanight.theme | default(value="tokyonight") }}">
+  <body class="theme-{{ config.extra.zolagray.theme | default(value="iron") }}">
     {% set root_section = get_section(path="_index.md") %}
     <header>
       <nav>
@@ -67,9 +69,9 @@
     </main>
     <hr>
     <footer>
-      <p>Powered by <a href="https://www.getzola.org/">Zola</a> and <a href="https://github.com/mxaddict/zolanight">ZolaNight Theme</a></p>
-      {% if config.extra.zolanight.ko_fi_url %}
-      <p>Support this content on <a href="{{ config.extra.zolanight.ko_fi_url }}">Ko-fi</a>.</p>
+      <p>Powered by <a href="https://www.getzola.org/">Zola</a> and <a href="https://github.com/bash-win/zolagray">Zolagray</a></p>
+      {% if config.extra.zolagray.ko_fi_url %}
+      <p>Support this content on <a href="{{ config.extra.zolagray.ko_fi_url }}">Ko-fi</a>.</p>
       {% endif %}
     </footer>
   </body>

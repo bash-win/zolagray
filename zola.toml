@@ -1,6 +1,6 @@
-base_url = "https://zolanight.codedmaster.com"
-title = "ZolaNight Theme Demo"
-description = "A demo site for the ZolaNight theme."
+base_url = "https://bash-win.github.io/zolagray"
+title = "Zolagray"
+description = "A demo site for the Zolagray theme."
 compile_sass = true
 generate_feeds = true
 feed_limit = 10
@@ -10,8 +10,8 @@ taxonomies = [{ name = "tags" }]
 [markdown.highlighting]
 theme = "catppuccin-mocha" # Code highlighting theme
 
-[extra.zolanight]
-theme = "tokyonight"
+[extra.zolagray]
+theme = "iron"
 home_list_latest_blog_posts = true
-google_analytics_id = "G-7NC6GLJCFS"
-ko_fi_url = "https://ko-fi.com/mxaddict"
+google_analytics_id = ""
+ko_fi_url = ""

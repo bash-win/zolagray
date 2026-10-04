@@ -1,11 +1,9 @@
-name = "zolanight"
-description = "ZolaNight is a dark theme inspired by the Tokyo Night color palette"
-homepage = "https://github.com/mxaddict/zolanight"
-min_version = "0.18.0"
+name = "zolagray"
+description = "Zolagray is a theme for the modern developer. Clean and Minimal."
+homepage = "https://github.com/bash-win/zolagray"
+min_version = "0.23.0"
 license = "MIT"
-tags = ["dark", "blog", "responsive", "syntax-highlighting", "tokyo-night"]
-demo = "https://zolanight.codedmaster.com"
+tags = ["dark", "blog", "responsive", "syntax-highlighting"]
 
 [author]
-name = "mxaddict"
-homepage = "https://www.codedmaster.com"
+name = "bash-win"

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ section.title }} - {{ config.title }}{% endblock title %}
+{% block title %}{% if section.title %}{{ section.title }} - {% endif %}{{ config.title }}{% endblock title %}
 
 {% block content %}
 <section>
@@ -12,12 +12,16 @@
   </div>
 </section>
 
-{% if config.extra.home_list_latest_blog_posts | default(value=true) %}
+{% if config.extra.zolagray.home_list_latest_blog_posts | default(value=true) %}
 <h2>Latest Posts</h2>
+{% set blog_posts = [] %}
+{% if "blog/_index.md" in section.subsections %}
 {% set blog_section = get_section(path="blog/_index.md") %}
-{% if blog_section %}
+{% set blog_posts = blog_section.pages %}
+{% endif %}
+{% if blog_posts %}
 <ul>
-  {% for page in blog_section.pages[:5] %}
+  {% for page in blog_posts[:5] %}
   <li>
     <article>
       {% if page.date %}

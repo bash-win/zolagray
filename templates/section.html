@@ -8,7 +8,8 @@
   {{ section.content | safe }}
 </div>
 <ul class="blog">
-  {% for page in paginator.pages %}
+  {% if paginator %}{% set listed_pages = paginator.pages %}{% else %}{% set listed_pages = section.pages %}{% endif %}
+  {% for page in listed_pages %}
   <li>
     <article>
       <h2><a href="{{ page.permalink }}">{{ page.title }}</a></h2>
@@ -22,6 +23,7 @@
       <a href="{{ get_taxonomy_url(kind="tags", name=tag) }}">#{{ tag }}</a>{% if not loop.last %}, {% endif %}
       {% endfor %}
       ]
+      </p>
       {% endif %}
       {% if page.description %}
       <p>{{ page.description }}</p>
@@ -31,6 +33,7 @@
   {% endfor %}
 </ul>
 
+{% if paginator %}
 <nav>
   {% if paginator.previous %}
   <a href="{{ paginator.previous }}">&lt; Prev</a>
@@ -40,5 +43,6 @@
   <a href="{{ paginator.next }}">Next &gt;</a>
   {% endif %}
 </nav>
+{% endif %}
 {{ super() }}
 {% endblock content %}
